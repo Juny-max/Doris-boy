@@ -4,7 +4,6 @@ import { useEffect, useRef } from 'react';
 import { CanvasFrameSequence } from '@/components/canvas-frame-sequence';
 import { BrutalistMemoryCard } from '@/components/brutalist-memory-card';
 import { BrutalistButton } from '@/components/brutalist-button';
-import { HBDMarquee } from '@/components/hbd-marquee';
 import confetti from 'canvas-confetti';
 
 const memories = [
@@ -162,11 +161,7 @@ export default function BirthdayPage() {
           </div>
         </section>
 
-        {/* Padding for marquee */}
-        <div style={{ height: '80px' }} />
       </div>
-
-      <HBDMarquee />
     </>
   );
 }
