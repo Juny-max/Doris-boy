@@ -7,6 +7,7 @@ import { HeroLoader } from '@/components/hero-loader';
 import { PortalHero } from '@/components/portal-hero';
 import { BirthdayBook } from '@/components/birthday-book';
 import { BirthdayWishDeck } from '@/components/birthday-wish-deck';
+import { AudioProvider } from '@/components/audio-provider';
 
 const galleryMedia = [
   { type: 'image' as const, src: '/memories/meta-favicon.jpg' },
@@ -85,7 +86,7 @@ export default function BirthdayPage() {
   }, [triggerConfetti]);
 
   return (
-    <>
+    <AudioProvider>
       <CanvasFrameSequence
         onProgress={handleProgress}
         onReady={handleReady}
@@ -172,6 +173,6 @@ export default function BirthdayPage() {
           </div>
         </footer>
       </main>
-    </>
+    </AudioProvider>
   );
 }

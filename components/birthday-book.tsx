@@ -2,6 +2,7 @@
 
 import { useCallback, useLayoutEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
+import { useSiteAudio } from '@/components/audio-provider';
 
 type BookMedia = {
   src: string;
@@ -44,6 +45,7 @@ function PaperPage({ item, page, name, side }: { item: BookMedia; page: number; 
 }
 
 export function BirthdayBook({ coverImage, media, name }: BirthdayBookProps) {
+  const { playClick, playPageFlip } = useSiteAudio();
   // `rightPage` is the visible page on the right; the previous photo is its left neighbour.
   const [rightPage, setRightPage] = useState(1);
   const [turning, setTurning] = useState<TurnDirection>(null);
@@ -66,6 +68,7 @@ export function BirthdayBook({ coverImage, media, name }: BirthdayBookProps) {
 
   const openBook = () => {
     if (isOpen) return;
+    playClick();
     setIsOpen(true);
     setCoverResting(false);
     requestAnimationFrame(() => {
@@ -79,6 +82,7 @@ export function BirthdayBook({ coverImage, media, name }: BirthdayBookProps) {
 
   const closeBook = () => {
     if (!isOpen || isTurning.current) return;
+    playClick();
     setShowControls(false);
     setCoverResting(false);
     gsap.timeline({ onComplete: () => setIsOpen(false) })
@@ -92,6 +96,7 @@ export function BirthdayBook({ coverImage, media, name }: BirthdayBookProps) {
     if ((direction === 'next' && rightPage >= media.length - 1) || (direction === 'previous' && rightPage <= 1)) return;
 
     isTurning.current = true;
+    playPageFlip();
     setTurning(direction);
 
     requestAnimationFrame(() => {
@@ -115,7 +120,7 @@ export function BirthdayBook({ coverImage, media, name }: BirthdayBookProps) {
         .to(leaf, { rotateY: rotation, z: 0, scale: 1, duration: 0.34, ease: 'power2.out' })
         .to(shadow, { opacity: 0.05, duration: 0.28, ease: 'power2.out' }, 0.3);
     });
-  }, [isOpen, media.length, rightPage]);
+  }, [isOpen, media.length, playPageFlip, rightPage]);
 
   const handlePointerDown = (event: React.PointerEvent<HTMLDivElement>) => {
     if (!isOpen) return;

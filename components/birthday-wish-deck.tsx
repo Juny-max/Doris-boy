@@ -2,15 +2,18 @@
 
 import { useRef, useState } from 'react';
 import gsap from 'gsap';
+import { useSiteAudio } from '@/components/audio-provider';
 
 type BirthdayWishDeckProps = { pages: string[] };
 
 export function BirthdayWishDeck({ pages }: BirthdayWishDeckProps) {
+  const { playClick } = useSiteAudio();
   const [current, setCurrent] = useState(0);
   const cardRef = useRef<HTMLElement>(null);
 
   const next = () => {
     if (current >= pages.length - 1 || !cardRef.current) return;
+    playClick();
     gsap.to(cardRef.current, {
       x: 52,
       y: -20,
@@ -27,6 +30,7 @@ export function BirthdayWishDeck({ pages }: BirthdayWishDeckProps) {
 
   const previous = () => {
     if (current <= 0 || !cardRef.current) return;
+    playClick();
     gsap.to(cardRef.current, {
       x: -52,
       y: -20,
