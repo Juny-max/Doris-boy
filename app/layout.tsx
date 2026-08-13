@@ -7,21 +7,26 @@ export const metadata: Metadata = {
   description: 'Celebrate with cherished memories and special moments. An interactive birthday celebration page with animations and personalized memories.',
   generator: 'v0.app',
   icons: {
-    icon: [
+    icon: '/memories/meta-favicon.jpg',
+    apple: '/memories/meta-favicon.jpg',
+  },
+  openGraph: {
+    title: 'Happy Birthday!',
+    description: 'Celebrate with cherished memories and special moments. An interactive birthday celebration page with animations and personalized memories.',
+    images: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: '/memories/meta-favicon.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Birthday memory preview',
       },
     ],
-    apple: '/apple-icon.png',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Happy Birthday!',
+    description: 'Celebrate with cherished memories and special moments. An interactive birthday celebration page with animations and personalized memories.',
+    images: ['/memories/meta-favicon.jpg'],
   },
 }
 
