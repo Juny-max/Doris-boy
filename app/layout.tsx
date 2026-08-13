@@ -3,29 +3,29 @@ import type { Metadata, Viewport } from 'next'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'Happy Birthday!',
-  description: 'Celebrate with cherished memories and special moments. An interactive birthday celebration page with animations and personalized memories.',
+  title: 'Prince, this one’s for you. ♡',
+  description: 'A little something from Doris, made just for your birthday.',
   generator: 'v0.app',
   icons: {
     icon: '/memories/meta-favicon.jpg',
     apple: '/memories/meta-favicon.jpg',
   },
   openGraph: {
-    title: 'Happy Birthday!',
-    description: 'Celebrate with cherished memories and special moments. An interactive birthday celebration page with animations and personalized memories.',
+    title: 'Prince, this one’s for you. ♡',
+    description: 'A little something from Doris, made just for your birthday.',
     images: [
       {
         url: '/memories/meta-favicon.jpg',
         width: 1200,
         height: 630,
-        alt: 'Birthday memory preview',
+        alt: 'A birthday surprise for Prince from Doris',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Happy Birthday!',
-    description: 'Celebrate with cherished memories and special moments. An interactive birthday celebration page with animations and personalized memories.',
+    title: 'Prince, this one’s for you. ♡',
+    description: 'A little something from Doris, made just for your birthday.',
     images: ['/memories/meta-favicon.jpg'],
   },
 }
