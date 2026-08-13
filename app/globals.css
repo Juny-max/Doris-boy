@@ -89,6 +89,12 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+html,
+body {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
 .dark {
   color-scheme: dark;
   --background: #1a1a1a;
